@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:typed_data';
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'package:isar/src/isar_connect_api.dart';
 import 'package:isar/src/native/isar_core.dart'
