@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -177,7 +178,7 @@ class ObjectIndex {
   final bool unique;
   final bool replace;
 
-  late final id = _kIsWeb ? _generateSafeId(name) : _generateStandardId(name);
+  late final id = kIsWeb ? _generateSafeId(name) : _generateStandardId(name);
 
   int _generateStandardId(String name) {
     return xxh3(utf8.encode(name) as Uint8List);
