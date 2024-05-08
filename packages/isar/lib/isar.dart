@@ -5,8 +5,6 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:typed_data';
 
-import 'package:flutter/foundation.dart' show kIsWeb;
-
 import 'package:isar/src/isar_connect_api.dart';
 import 'package:isar/src/native/isar_core.dart'
     if (dart.library.html) 'package:isar/src/web/isar_web.dart';
@@ -48,4 +46,4 @@ part 'src/schema/schema.dart';
 @protected
 typedef IsarUint8List = Uint8List;
 
-const bool _kIsWeb = kIsWeb;
+const bool _kIsWeb = identical(0, 0.0);
