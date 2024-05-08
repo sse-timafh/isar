@@ -177,7 +177,19 @@ class ObjectIndex {
   final bool unique;
   final bool replace;
 
-  late final id = xxh3(utf8.encode(name) as Uint8List);
+  late final id = _kIsWeb ? _generateSafeId(name) : _generateStandardId(name);
+
+  int _generateStandardId(String name) {
+    return xxh3(utf8.encode(name) as Uint8List);
+  }
+
+  // Safe ID generation for web
+  int _generateSafeId(String name) {
+    final hash = xxh3(utf8.encode(name) as Uint8List);
+    final safeMaxInt = BigInt.parse('9007199254740991');
+    final safeId = BigInt.from(hash).abs() % safeMaxInt;
+    return safeId.toInt();
+  }
 }
 
 class ObjectLink {
